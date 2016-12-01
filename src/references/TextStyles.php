@@ -1,11 +1,11 @@
 <?php
 
-namespace eznio\tabler\references;
+namespace eznio\styler\references;
 
 /**
  * Text style references.
  * Text styles can be combined.
- * @package eznio\tabler\references
+ * @package eznio\styler\references
  */
 class TextStyles
 {

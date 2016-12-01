@@ -1,11 +1,11 @@
 <?php
 
-namespace eznio\tabler\helpers;
+namespace eznio\styler;
 
 
 /**
- * Console style-applying helper
- * @package eznio\tabler\helpers
+ * Main helper class
+ * @package eznio\styler
  */
 class Styler
 {
@@ -21,9 +21,9 @@ class Styler
     public static function get($style)
     {
         if (is_array($style)) {
-            return self::getCombinedStyle($style);
+            return self::combined($style);
         }
-        return self::getSingleStyle($style);
+        return self::single($style);
     }
 
     /**
@@ -31,7 +31,7 @@ class Styler
      * @param $style
      * @return string
      */
-    public static function getSingleStyle($style)
+    public static function single($style)
     {
         return sprintf(
             self::ESCAPE_TEMPLATE,
@@ -44,7 +44,7 @@ class Styler
      * @param $style
      * @return string
      */
-    public static function getCombinedStyle($style)
+    public static function combined($style)
     {
         return sprintf(
             self::ESCAPE_TEMPLATE,
@@ -56,8 +56,8 @@ class Styler
      * Returns escape string to reset custom style to default one. Should be appended to styled text
      * @return string
      */
-    public static function getReset()
+    public static function reset()
     {
-        return self::getSingleStyle(self::STYLE_RESET_SEQUENCE);
+        return self::single(self::STYLE_RESET_SEQUENCE);
     }
 }

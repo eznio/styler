@@ -4,15 +4,15 @@ namespace eznio\tabler\traits;
 
 
 use eznio\ar\Ar;
-use eznio\tabler\references\BackgroundColors;
-use eznio\tabler\references\ForegroundColors;
+use eznio\styler\references\BackgroundColors;
+use eznio\styler\references\ForegroundColors;
 
 /**
  * Supports setting linux console styles for the elements
  * Style constants are defined in linux console and supported by Style helper
  * Reference constants can be found in \eznio\tabler\references namespace
  * @see http://misc.flogisoft.com/bash/tip_colors_and_formatting
- * @package eznio\tabler\traits
+ * @package eznio\styler
  */
 trait StyleAware
 {

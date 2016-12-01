@@ -15,8 +15,8 @@
   },
   "autoload": {
     "psr-4": {
-      "eznio\\tabler\\": "src",
-      "eznio\\tabler\\tests\\": "tests"
+      "eznio\\styler\\": "src",
+      "eznio\\styler\\tests\\": "tests"
     }
   },
   "scripts": {

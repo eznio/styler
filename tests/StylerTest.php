@@ -3,10 +3,10 @@
 namespace eznio\db\tests\helpers;
 
 
-use eznio\tabler\helpers\Styler;
-use eznio\tabler\references\BackgroundColors;
-use eznio\tabler\references\ForegroundColors;
-use eznio\tabler\references\TextStyles;
+use eznio\styler\Styler;
+use eznio\styler\references\BackgroundColors;
+use eznio\styler\references\ForegroundColors;
+use eznio\styler\references\TextStyles;
 
 class StylerTest extends \PHPUnit_Framework_TestCase
 {

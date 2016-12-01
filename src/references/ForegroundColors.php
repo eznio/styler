@@ -1,10 +1,10 @@
 <?php
 
-namespace eznio\tabler\references;
+namespace eznio\styler\references;
 
 /**
  * Foreground colors reference
- * @package eznio\tabler\references
+ * @package eznio\styler\references
  */
 class ForegroundColors
 {
