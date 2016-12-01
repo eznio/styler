@@ -1,6 +1,6 @@
 <?php
 
-namespace eznio\tabler\traits;
+namespace eznio\styler\traits;
 
 
 use eznio\ar\Ar;
