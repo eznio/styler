@@ -60,4 +60,9 @@ class Styler
     {
         return self::single(self::STYLE_RESET_SEQUENCE);
     }
+
+    public static function style($string, $style)
+    {
+        return Styler::get($style) . $string . Styler::reset();
+    }
 }
