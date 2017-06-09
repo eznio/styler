@@ -18,7 +18,7 @@ class Styler
      * @param $style
      * @return string
      */
-    public static function get($style)
+    public static function get($style) : string
     {
         if (is_array($style)) {
             return self::combined($style);
@@ -31,7 +31,7 @@ class Styler
      * @param $style
      * @return string
      */
-    public static function single($style)
+    public static function single($style) : string
     {
         return sprintf(
             self::ESCAPE_TEMPLATE,
@@ -44,7 +44,7 @@ class Styler
      * @param $style
      * @return string
      */
-    public static function combined($style)
+    public static function combined($style) : string
     {
         return sprintf(
             self::ESCAPE_TEMPLATE,
@@ -56,12 +56,18 @@ class Styler
      * Returns escape string to reset custom style to default one. Should be appended to styled text
      * @return string
      */
-    public static function reset()
+    public static function reset() : string
     {
         return self::single(self::STYLE_RESET_SEQUENCE);
     }
 
-    public static function style($string, $style)
+    /**
+     * Overall shortcut to get the whole styed string with the reset at the end
+     * @param $string
+     * @param $style
+     * @return string
+     */
+    public static function style($string, $style) : string
     {
         return Styler::get($style) . $string . Styler::reset();
     }

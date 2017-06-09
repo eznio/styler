@@ -6,7 +6,7 @@
   "homepage": "https://github.com/eznio/styler",
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.0.0",
     "eznio/ar": "*"
   },
   "require-dev": {

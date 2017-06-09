@@ -22,9 +22,9 @@ trait StyleAware
     /**
      * Add single style line
      * @param $style
-     * @return $this
+     * @return StyleAware
      */
-    public function addStyle($style)
+    public function addStyle(int $style) : StyleAware
     {
         $this->styles[$style] = $style;
         return $this;
@@ -33,18 +33,20 @@ trait StyleAware
     /**
      * Remove single style line
      * @param $style
+     * @return StyleAware
      */
-    public function removeStyle($style)
+    public function removeStyle(int $style) : StyleAware
     {
         unset($this->styles[$style]);
+        return $this;
     }
 
     /**
      * Set all styles at once
      * @param $styles
-     * @return $this
+     * @return StyleAware
      */
-    public function setStyles($styles)
+    public function setStyles(array $styles) : StyleAware
     {
         $this->styles = array_merge($this->styles, $styles);
         return $this;
@@ -54,7 +56,7 @@ trait StyleAware
      * Get all styles at once
      * @return array
      */
-    public function getStyles()
+    public function getStyles() : array
     {
         return $this->styles;
     }
@@ -63,17 +65,19 @@ trait StyleAware
      * Set element foreground color
      * If any other fg color constant was added before - it will be removed
      * @param $color
+     * @return StyleAware
      */
-    public function setForegroundColor($color)
+    public function setForegroundColor($color) : StyleAware
     {
         $this->setColor($color, ForegroundColors::ALL);
+        return $this;
     }
 
     /**
      * Get element foreground color
      * @return int
      */
-    public function getForegroundColor()
+    public function getForegroundColor() : int
     {
         return $this->getColor(ForegroundColors::ALL);
     }
@@ -82,17 +86,19 @@ trait StyleAware
      * Set element background color
      * If any other bg color constant was added before - it will be removed
      * @param $color
+     * @return StyleAware
      */
-    public function setBackgroundColor($color)
+    public function setBackgroundColor($color) : StyleAware
     {
         $this->setColor($color, BackgroundColors::ALL);
+        return $this;
     }
 
     /**
      * Get element background color
      * @return int
      */
-    public function getBackgroundColor()
+    public function getBackgroundColor() : int
     {
         return $this->getColor(BackgroundColors::ALL);
     }
@@ -100,9 +106,9 @@ trait StyleAware
     /**
      * Returns first element of given reference
      * @param array $reference
-     * @return mixed
+     * @return int
      */
-    private function getColor(array $reference)
+    private function getColor(array $reference) : int
     {
         return Ar::reduce($this->styles, function($item, $prevValue) use ($reference) {
             if (null !== $prevValue) {
@@ -119,12 +125,14 @@ trait StyleAware
      * Sets style and removes all other styles from given reference
      * @param $color
      * @param array $reference
+     * @return StyleAware
      */
-    private function setColor($color, array $reference)
+    private function setColor($color, array $reference) : StyleAware
     {
         $this->styles = Ar::reject($this->styles, function ($item) use ($reference) {
             return in_array($item, $reference);
         });
         $this->addStyle($color);
+        return $this;
     }
 }
