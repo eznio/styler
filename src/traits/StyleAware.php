@@ -24,7 +24,7 @@ trait StyleAware
      * @param $style
      * @return StyleAware
      */
-    public function addStyle(int $style) : StyleAware
+    public function addStyle(int $style)
     {
         $this->styles[$style] = $style;
         return $this;
@@ -35,7 +35,7 @@ trait StyleAware
      * @param $style
      * @return StyleAware
      */
-    public function removeStyle(int $style) : StyleAware
+    public function removeStyle(int $style)
     {
         unset($this->styles[$style]);
         return $this;
@@ -46,10 +46,9 @@ trait StyleAware
      * @param $styles
      * @return StyleAware
      */
-    public function setStyles(array $styles) : StyleAware
+    public function setStyles(array $styles)
     {
         $this->styles = array_merge($this->styles, $styles);
-        return $this;
     }
 
     /**
@@ -67,7 +66,7 @@ trait StyleAware
      * @param $color
      * @return StyleAware
      */
-    public function setForegroundColor($color) : StyleAware
+    public function setForegroundColor($color)
     {
         $this->setColor($color, ForegroundColors::ALL);
         return $this;
@@ -88,7 +87,7 @@ trait StyleAware
      * @param $color
      * @return StyleAware
      */
-    public function setBackgroundColor($color) : StyleAware
+    public function setBackgroundColor($color)
     {
         $this->setColor($color, BackgroundColors::ALL);
         return $this;
@@ -127,7 +126,7 @@ trait StyleAware
      * @param array $reference
      * @return StyleAware
      */
-    private function setColor($color, array $reference) : StyleAware
+    private function setColor($color, array $reference)
     {
         $this->styles = Ar::reject($this->styles, function ($item) use ($reference) {
             return in_array($item, $reference);
